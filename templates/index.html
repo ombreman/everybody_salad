@@ -1,13 +1,91 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <title>Need some Salad?</title>
+    <style>
+        .id{
+            height: 50px;
+        }
+        .salad {
+            width: 500px;
+            margin: auto;
+        }
+
+        .banner {
+            margin: auto;
+        }
+
+        .main-image {
+            height: 500px;
+            object-fit: cover;
+            /*color: blue;*/
+            /*margin-top: 20px;*/
+            image-position: center;
+            background-size: cover;
+            margin-bottom: 20px;
+
+        }
+
+        .button{
+            display: block;
+            margin-left: 100px;
+
+        }
+
+
+
+    </style>
 </head>
 <body>
-<h>
-    dd
-    dfdsf
-</h>
+<div class="jumbotron jumbotron-fluid">
+        <div class="container" class="salad-for-everyone">
+            <h1 class="salada" class="banner"> Salad, For everyone</h1>
+        </div>
+    </div>
+<div class="salad">
+
+    <div class="main-image">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGgIgZxbKR7642L-l4u1tyUm9y3-5h7x9oIg&usqp=CAU" width="500px" height="500px"/>
+    </div>
+    <div>
+        <div class="input-group mb-3" class="id">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="ID-block">ID</span>
+            </div>
+            <input type="text" class="form-control" placeholder="아이디를 입력하세요" aria-label="Username"
+                   aria-describedby="basic-addon1">
+        </div><small id="emailHelp" class="form-text text-muted"> Hi, there...</small>
+
+        <div class="input-group mb-3" class="password">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="PW-block">PW</span>
+            </div>
+            <input type="text" class="form-control" placeholder="비밀번호를 입력하세요" aria-label="Username"
+                   aria-describedby="basic-addon1">
+        </div>
+    </div>
+
+    <div class="button">
+        <button type="button" class="btn btn-primary btn-lg">Log In</button>
+
+        <button type="button" class="btn btn-primary btn-lg">Sign In</button>
+    </div>
+
+</div>
 </body>
 </html>
