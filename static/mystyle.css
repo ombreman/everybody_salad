@@ -40,15 +40,6 @@ input::-webkit-calendar-picker-indicator {
     height: 100%;
 }
 
-.btn {
-    border-radius: 10px;
-    width: 300px;
-    font-size: 2rem;
-    margin: auto;
-    font-family: 'Nanum Myeongjo', serif;
-    font-family: 'Song Myung', serif;
-}
-
 .hero-body {
     background-color: whitesmoke;
 }
@@ -61,4 +52,8 @@ input::-webkit-calendar-picker-indicator {
 
 .salad-img {
     height: auto;
+}
+
+.salad-img {
+    margin: auto;
 }
