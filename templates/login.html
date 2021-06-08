@@ -41,8 +41,10 @@
 
             .title {
                 color: white;
+                font-weight: lighter;
+                {#margin-top:0px;#}
+                {#margin-bottom:0px;#}
                 font-family: 'Jua', sans-serif;
-                font-size:40px;
             }
 
             .subtitle {
@@ -74,6 +76,7 @@
                 color: gray;
             }
             .hero{
+                height:300px;
                 background-color:#9AEAE6;
             }
             {#.title.is-sparta{#}
@@ -300,7 +303,7 @@
     <body>
         <section class="hero is-#9AEAE6">
             <img src="{{ url_for('static', filename='logo.jpeg') }}" class="salad-img">
-            <div class="hero-body has-text-centered" style="padding-bottom:1rem;margin:auto;font-size:50px;">
+            <div class="hero-body has-text-centered" style="padding-bottom:1rem;padding-top:10px;font-size:40px;">
                 <h1 class="title">모두의 샐러드</h1>
                 <h2 class="title">세상을 건강하게</h2>
             </div>
