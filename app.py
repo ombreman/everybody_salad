@@ -35,6 +35,10 @@ def login():
     msg = request.args.get("msg")
     return render_template('login.html', msg=msg)
 
+@app.route('/memo', methods=['GET'])
+def listing():
+    articles = list(db.articles.find({}, {'_id': False}))
+    return jsonify({'all_articles':articles})
 
 @app.route('/user/<username>')
 def user(username):
@@ -108,7 +112,7 @@ def sign_up():
 #     # ID 중복확인
 #     return jsonify({'result': 'success'})
 
-
+# 필요없을 듯
 @app.route('/update_profile', methods=['POST'])
 def save_img():
     token_receive = request.cookies.get('mytoken')
@@ -159,7 +163,31 @@ def get_posts():
     except (jwt.ExpiredSignatureError, jwt.exceptions.DecodeError):
         return redirect(url_for("home"))
 
+@app.route('/memo', methods=['POST'])
+def saving():
+    url_receive = request.form['url_give']
+    comment_receive = request.form['comment_give']
 
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
+    data = requests.get(url_receive, headers=headers)
+
+    soup = BeautifulSoup(data.text, 'html.parser')
+
+    title = soup.select_one('meta[property="og:title"]')['content']
+    image = soup.select_one('meta[property="og:image"]')['content']
+    desc = soup.select_one('meta[property="og:description"]')['content']
+
+    doc = {
+        'title':title,
+        'image':image,
+        'desc':desc,
+        'url':url_receive,
+        'comment':comment_receive
+    }
+
+
+# 여기도 아마 필요없을 듯
 @app.route('/update_like', methods=['POST'])
 def update_like():
     token_receive = request.cookies.get('mytoken')
