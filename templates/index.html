@@ -49,6 +49,10 @@
                 border: black solid;
                 border-radius: 5px;
             }
+            .main-width{
+                width:900px;
+
+            }
         </style>
 
 
@@ -219,9 +223,9 @@
     <body>
         <div class="wrap">
             <div class="hero is-#9AEAE6">
-                <img src="{{ url_for('static', filename='logo.jpeg') }}" class="salad-img">
+                <img src="{{ url_for('static', filename='logo.jpeg') }}" class="main-width">
             </div>
-            <div class="jumbotron">
+            <div class="jumbotron main-width">
                 <h1 class="display-4">나홀로 링크 메모장!</h1>
                 <p class="lead">중요한 링크를 저장해두고, 나중에 볼 수 있는 공간입니다</p>
                 <hr class="my-4">
