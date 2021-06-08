@@ -28,7 +28,7 @@
 
         <style type="text/css">
             body {
-                {#background-color: RGBA(232, 52, 78, 0.2);#}
+                background-color: #9AEAE6;
                 min-height: 100vh;
                 margin-bottom:100px;
             }
@@ -40,6 +40,8 @@
             .wrap {
                 width: 900px;
                 margin: auto;
+                background-color: white;
+                border-radius: 10px;
             }
 
             .comment {
@@ -51,21 +53,23 @@
                 width: 500px;
                 margin: 20px auto;
                 padding: 50px;
-                border: black solid;
+                border: #298784 solid;
                 border-radius: 5px;
+                color: #298784;
             }
             .main-width{
-                height:200px;
                 width:900px;
-
+                display: block;
+                margin:0 auto;
             }
             .jumbotron{
                 background-color:white;
                 border-width:5px;
-                border-color:#9AEAE6;
+                border-color:#298784;
+                padding:2em;
             }
             .txt-1{
-                color:#9AEAE6;
+                color:#298784;
             }
 
 
@@ -237,16 +241,16 @@
 
     </head>
     <body>
-        <div class="wrap">
             <div class="hero is-#9AEAE6">
                 <img src="{{ url_for('static', filename='logo.jpeg') }}" class="main-width">
             </div>
+        <div class="wrap">
             <div class="jumbotron main-width">
                 <h1 class="display-4 txt-1">나홀로 링크 메모장!</h1>
                 <p class="lead txt-1">중요한 링크를 저장해두고, 나중에 볼 수 있는 공간입니다</p>
-                <hr class="my-4" style="border:solid 1px #9AEAE6;">
+                <hr class="my-4" style="border:solid 1px #298784;">
                 <p class="lead">
-                    <button style="background-color:#9AEAE6; border-color:white;" onclick="openClose()" id="btn-post-box" type="button" class="btn btn-primary">포스팅 박스 열기
+                    <button style="background-color:#298784; border-color:white;" onclick="openClose()" id="btn-post-box" type="button" class="btn btn-primary">포스팅 박스 열기
                     </button>
                 </p>
             </div>
@@ -254,13 +258,13 @@
                 <div>
                     <div class="form-group">
                         <label for="post-url">아티클 URL</label>
-                        <input id="post-url" class="form-control" placeholder="">
+                        <input id="post-url" class="form-control" style="border:1px solid #badedd">
                     </div>
                     <div class="form-group">
                         <label for="post-comment">간단 코멘트</label>
-                        <textarea id="post-comment" class="form-control" rows="2"></textarea>
+                        <textarea id="post-comment" class="form-control"style="border:1px solid #badedd" rows="2"></textarea>
                     </div>
-                    <button type="button" class="btn btn-primary" onclick="postArticle()">기사저장</button>
+                    <button type="button" class="btn btn-primary" onclick="postArticle()" style="background-color:#298784;border:none">기사저장</button>
                 </div>
             </div>
             <div id="cards-box" class="card-columns">
