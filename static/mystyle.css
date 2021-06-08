@@ -1,7 +1,7 @@
 body {
     background-color: RGBA(232, 52, 78, 0.2);
     min-height: 100vh;
-		padding-top: 3.25rem;
+    padding-top: 3.25rem;
 }
 
 .section {
@@ -36,7 +36,7 @@ input::-webkit-calendar-picker-indicator {
 }
 
 .image img {
-    object-fit:cover;
-    width:100%;
-    height:100%;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
 }

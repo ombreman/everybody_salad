@@ -14,6 +14,9 @@
         <!-- Font Awesome CSS -->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
+        <!-- Bulma CSS 보다 항상 뒤에 있어야함 -->
+        <link href="{{ url_for('static', filename='mystyle.css') }}" rel="stylesheet">
+
         <!-- JS -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
@@ -24,5 +27,14 @@
 
     </head>
     <body>
+        <nav class="navbar is-fixed-top is-white" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="/">
+                    <img src="{{ url_for('static', filename='logo.png') }}">
+                    <strong class="is-sparta"
+                            style="font-family: 'Stylish', sans-serif;font-size: larger;">SWEETER</strong>
+                </a>
+            </div>
+        </nav>
     </body>
 </html>
