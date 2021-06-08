@@ -27,6 +27,11 @@
 
 
         <style type="text/css">
+            body {
+                {#background-color: RGBA(232, 52, 78, 0.2);#}
+                min-height: 100vh;
+                margin-bottom:100px;
+            }
             * {
                 font-family: 'Do Hyeon', sans-serif;
                 font-family: 'Jua', sans-serif;
@@ -50,9 +55,20 @@
                 border-radius: 5px;
             }
             .main-width{
+                height:200px;
                 width:900px;
 
             }
+            .jumbotron{
+                background-color:white;
+                border-width:5px;
+                border-color:#9AEAE6;
+            }
+            .txt-1{
+                color:#9AEAE6;
+            }
+
+
         </style>
 
 
@@ -226,11 +242,11 @@
                 <img src="{{ url_for('static', filename='logo.jpeg') }}" class="main-width">
             </div>
             <div class="jumbotron main-width">
-                <h1 class="display-4">나홀로 링크 메모장!</h1>
-                <p class="lead">중요한 링크를 저장해두고, 나중에 볼 수 있는 공간입니다</p>
-                <hr class="my-4">
+                <h1 class="display-4 txt-1">나홀로 링크 메모장!</h1>
+                <p class="lead txt-1">중요한 링크를 저장해두고, 나중에 볼 수 있는 공간입니다</p>
+                <hr class="my-4" style="border:solid 1px #9AEAE6;">
                 <p class="lead">
-                    <button onclick="openClose()" id="btn-post-box" type="button" class="btn btn-primary">포스팅 박스 열기
+                    <button style="background-color:#9AEAE6; border-color:white;" onclick="openClose()" id="btn-post-box" type="button" class="btn btn-primary">포스팅 박스 열기
                     </button>
                 </p>
             </div>
