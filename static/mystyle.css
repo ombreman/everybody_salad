@@ -1,7 +1,6 @@
-body {
+.body {
     background-color: RGBA(232, 52, 78, 0.2);
     min-height: 100vh;
-    padding-top: 3.25rem;
 }
 
 .section {
@@ -41,9 +40,25 @@ input::-webkit-calendar-picker-indicator {
     height: 100%;
 }
 
-.button {
+.btn {
     border-radius: 10px;
+    width: 300px;
     font-size: 2rem;
+    margin: auto;
     font-family: 'Nanum Myeongjo', serif;
     font-family: 'Song Myung', serif;
+}
+
+.hero-body {
+    background-color: whitesmoke;
+}
+
+.title {
+    text-align: center;
+    background-color: #9AEAE6;
+    padding-bottom: 2rem;
+}
+
+.salad-img {
+    height: auto;
 }

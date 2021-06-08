@@ -3,7 +3,7 @@
     <head>
 
         <!-- Webpage Title -->
-        <title>Home | SWEETER</title>
+        <title>Home | 모두의 샐러드</title>
 
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -117,15 +117,10 @@
 
     </head>
     <body>
-        <nav class="navbar is-fixed-top is-white" role="navigation" aria-label="main navigation">
-            <div class="navbar-brand">
-                <a class="navbar-item" href="/">
-                    <img src="{{ url_for('static', filename='logo.jpeg') }}">
-                    <strong class="is-sparta"
-                            style="font-family: 'Stylish', sans-serif;font-size: larger;">모두의 샐러드</strong>
-                </a>
-            </div>
-        </nav>
+        <div class="hero is-#9AEAE6">
+            <img src="{{ url_for('static', filename='logo.jpeg') }}" class="salad-img">
+            <button class="btn">레시피 추가하기</button>
+        </div>
             <section class="section">
                 <article class="media">
                     <figure class="media-left" style="align-self: center">
@@ -144,39 +139,39 @@
                 </article>
 
                 <!--모달창-->
-                <div class="modal" id="modal-post">
-                    <div class="modal-background" onclick='$("#modal-post").removeClass("is-active")'></div>
-                    <div class="modal-content">
-                        <div class="box">
-                            <article class="media">
-                                <div class="media-content">
-                                    <div class="field">
-                                        <p class="control">
-                                        <textarea id="textarea-post" class="textarea"
-                                                  placeholder="무슨 생각을 하고 계신가요?"></textarea>
-                                        </p>
-                                    </div>
-                                    <nav class="level is-mobile">
-                                        <div class="level-left">
+<!--                <div class="modal" id="modal-post">-->
+<!--                    <div class="modal-background" onclick='$("#modal-post").removeClass("is-active")'></div>-->
+<!--                    <div class="modal-content">-->
+<!--                        <div class="box">-->
+<!--                            <article class="media">-->
+<!--                                <div class="media-content">-->
+<!--                                    <div class="field">-->
+<!--                                        <p class="control">-->
+<!--                                        <textarea id="textarea-post" class="textarea"-->
+<!--                                                  placeholder="무슨 생각을 하고 계신가요?"></textarea>-->
+<!--                                        </p>-->
+<!--                                    </div>-->
+<!--                                    <nav class="level is-mobile">-->
+<!--                                        <div class="level-left">-->
 
-                                        </div>
-                                        <div class="level-right">
-                                            <div class="level-item">
-                                                <a class="button is-sparta" onclick="post()">포스팅하기</a>
-                                            </div>
-                                            <div class="level-item">
-                                                <a class="button is-sparta is-outlined"
-                                                   onclick='$("#modal-post").removeClass("is-active")'>취소</a>
-                                            </div>
-                                        </div>
-                                    </nav>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                    <button class="modal-close is-large" aria-label="close"
-                            onclick='$("#modal-post").removeClass("is-active")'></button>
-                </div>
+<!--                                        </div>-->
+<!--                                        <div class="level-right">-->
+<!--                                            <div class="level-item">-->
+<!--                                                <a class="button is-sparta" onclick="post()">포스팅하기</a>-->
+<!--                                            </div>-->
+<!--                                            <div class="level-item">-->
+<!--                                                <a class="button is-sparta is-outlined"-->
+<!--                                                   onclick='$("#modal-post").removeClass("is-active")'>취소</a>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </nav>-->
+<!--                                </div>-->
+<!--                            </article>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <button class="modal-close is-large" aria-label="close"-->
+<!--                            onclick='$("#modal-post").removeClass("is-active")'></button>-->
+<!--                </div>-->
             </section>
 
         <!--포스팅 카드-->
