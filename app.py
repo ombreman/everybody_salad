@@ -102,7 +102,7 @@ def sign_up():
 #     # ID 중복확인
 #     return jsonify({'result': 'success'})
 
-
+# 크롤링 API
 @app.route('/memo', methods=['POST'])
 def saving():
     url_receive = request.form['url_give']
