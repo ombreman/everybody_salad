@@ -31,7 +31,9 @@
             body {
                 {#background-color: RGBA(232, 52, 78, 0.2);#}
                 min-height: 100vh;
+                margin-bottom:100px;
             }
+
 
             .section {
                 padding: 1rem 1.5rem;
@@ -46,13 +48,6 @@
                 {#margin-bottom:0px;#}
                 font-family: 'Jua', sans-serif;
             }
-
-            .subtitle {
-                font-size: 2rem;
-                font-family: 'Nanum Myeongjo', serif;
-                font-family: 'Song Myung', serif;
-            }
-
             .is-sparta {
                 color:white;
                 font-size: 30px;
@@ -64,7 +59,7 @@
                 background-color: #e8344e;
                 border-color: transparent;
                 color: #fff !important;
-                font-family: 'Gamja Flower', cursive;
+                font-family: 'Jua', sans-serif;
             }
 
             .button.is-sparta.is-outlined {
@@ -77,7 +72,7 @@
                 color: gray;
             }
             .hero{
-                height:300px;
+                height:350px;
                 background-color:#9AEAE6;
             }
             {#.title.is-sparta{#}
@@ -96,7 +91,10 @@
 
             }
             .font{
-               font-family: 'Gamja Flower', cursive;
+               font-family: 'Jua', sans-serif;
+            }
+            .mb-3{
+                color:#9AEAE6;
             }
 
             }
@@ -304,7 +302,7 @@
     <body>
         <section class="hero is-#9AEAE6">
             <img src="{{ url_for('static', filename='logo.jpeg') }}" class="salad-img">
-            <div class="hero-body has-text-centered" style="padding-bottom:1rem;padding-top:10px;font-size:40px;">
+            <div class="hero-body has-text-centered" style="padding-bottom:10px;padding-top:10px;">
                 <h1 class="title">모두의 샐러드</h1>
                 <h2 class="title">세상을 건강하게</h2>
             </div>
@@ -346,7 +344,7 @@
 
                             </div>
                             <div id="div-sign-in-or-up" class="has-text-centered">
-                                <nav class="level is-mobile is-#9AEAE6">
+                                <nav class="level is-mobile">
                                     <button class="level-item button is-sparta" onclick="sign_in()">
                                         로그인
                                     </button>
