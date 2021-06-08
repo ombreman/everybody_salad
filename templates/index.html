@@ -111,7 +111,7 @@
             }
 
             function get_posts() {
-                $("#post-box").empty()
+                $("#cards-box").empty()
                 $.ajax({
                     type: "GET",
                     url: "/get_posts",
@@ -151,7 +151,7 @@
                                             </div>
                                         </article>
                                     </div>`
-                                $("#post-box").append(html_temp)
+                                $("#cards-box").append(html_temp)
                             }
                         }
                     }
