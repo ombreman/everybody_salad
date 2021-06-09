@@ -84,9 +84,8 @@
                 margin-right:50px;
             }
             .sign-out{
-
                 position:relative;
-                left:1150px;
+                left:850px;
                 top:50px;
                 {#float:right;#}
 
@@ -135,9 +134,10 @@
                     success: function (response) {
                         let recipes = response['all_recipes']
                         for (let i = 0; i < recipes.length; i++) {
-                            let name = recipes[i]['salad_name']
-                            let desc = recipes[i]['salad_desc'].slice(0, 100) + ". . ."
-                            let thumb = recipes[i]['salad_thumb']
+                            let name = recipes[i]['salad name']
+                            let desc = recipes[i]['salad desc'].slice(0, 100) + "......"
+                            let thumb = recipes[i]['salad thumb']
+                            let url = recipes[i]['salad url']
 
                             let temp_html = `<div class="card card-block col-md-4" style="width: 100%;border:none; ">
                                                 <img class="card-img-top"
@@ -145,7 +145,7 @@
                                                      src="${thumb}"
                                                      alt="Card image cap">
                                                 <div class="card-body">
-                                                    <a target="_blank" class="card-title">${name}</a>
+                                                    <a href="${url}" target="_blank" class="card-title">${name}</a>
                                                     <p class="card-text">${desc}</p>
                                                 </div>
                                             </div>`
@@ -167,7 +167,7 @@
         <div class="hero is-#9AEAE6">
             <img src="{{ url_for('static', filename='logo.jpeg') }}" class="main-width">
         </div>
-        <div class="wrap" style="width: 1300px;">
+        <div class="wrap" style="width: 1000px;">
             <button class="btn btn-primary sign-out" type="button" onclick="sign_out()"
                     style="background-color:#298784; border-color:white;">로그아웃
             </button>
