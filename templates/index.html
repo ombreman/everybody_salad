@@ -44,7 +44,7 @@
                 border-radius: 10px;
             }
 
-            .comment {
+            .ingredients {
                 color: blue;
                 font-weight: bold;
             }
@@ -93,12 +93,13 @@
 
             function postArticle() {
                 let url = $('#post-url').val()
-                let comment = $('#post-comment').val()
+                let ingredients = $('#post-ingredients').val()
+                let howtocook = $('#post-howtocook').val()
 
                 $.ajax({
                     type: "POST",
                     url: "/memo",
-                    data: {url_give: url, comment_give: comment},
+                    data: {url_give: url, ingredients_give: ingredients, howtocook_give: howtocook},
                     success: function (response) { // 성공하면
                         alert(response["msg"]);
                         window.location.reload()
@@ -112,13 +113,13 @@
                     url: "/memo",
                     data: {},
                     success: function (response) {
-                        let articles = response['all_articles']
-                        for (let i = 0; i < articles.length; i++) {
-                            let title = articles[i]['title']
-                            let image = articles[i]['image']
-                            let url = articles[i]['url']
-                            let desc = articles[i]['desc']
-                            let comment = articles[i]['comment']
+                        let recipes = response['all_recipes']
+                        for (let i = 0; i < recipes.length; i++) {
+                            let title = recipes[i]['title']
+                            let image = recipes[i]['image']
+                            let url = recipes[i]['url']
+                            let desc = recipes[i]['desc']
+                            let ingredients = recipes[i]['ingredients']
 
                             let temp_html = `<div class="card card-block col-md-4" style="width: 100%;border:none;">
                                                 <img class="card-img-top"
@@ -127,7 +128,7 @@
                                                 <div class="card-body">
                                                     <a target="_blank" href="${url}" class="card-title">${title}</a>
                                                     <p class="card-text">${desc}</p>
-                                                    <p class="card-text comment">${comment}</p>
+                                                    <p class="card-text ingredients">${ingredients}</p>
                                                 </div>
                                             </div>`
                             $('#cards-box').append(temp_html)
@@ -163,8 +164,8 @@
                         <textarea id="post-ingredients" class="form-control"style="border:1px solid #badedd" rows="2"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="post-comment">조리방법</label>
-                        <textarea id="post-comment" class="form-control" style="border:1px solid #badedd"
+                        <label for="post-howtocook">조리방법</label>
+                        <textarea id="post-howtocook" class="form-control" style="border:1px solid #badedd"
                                   rows="4"></textarea>
                     </div>
                     <button type="button" class="btn btn-primary btn-lg" onclick="postArticle()" style="background-color:#298784;border:none; margin: 0 auto; display: block">레시피 저장</button>

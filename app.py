@@ -1,4 +1,3 @@
-from pymongo import MongoClient
 import jwt
 import datetime
 import hashlib
@@ -15,6 +14,7 @@ app.config['UPLOAD_FOLDER'] = "./static/profile_pics"
 
 SECRET_KEY = 'SPARTA'
 
+from pymongo import MongoClient
 client = MongoClient('localhost', 27017)
 db = client.dbeverybody_salad
 
@@ -36,11 +36,6 @@ def home():
 def login():
     msg = request.args.get("msg")
     return render_template('login.html', msg=msg)
-
-@app.route('/memo', methods=['GET'])
-def listing():
-    articles = list(db.articles.find({}, {'_id': False}))
-    return jsonify({'all_articles':articles})
 
 
 @app.route('/sign_in', methods=['POST'])
@@ -102,11 +97,17 @@ def sign_up():
 #     # ID 중복확인
 #     return jsonify({'result': 'success'})
 
+@app.route('/memo', methods=['GET'])
+def listing():
+    recipes = list(db.recipes.find({}, {'_id': False}))
+    return jsonify({'all_recipes':recipes})
+
 # 크롤링 API 수정 요망!!!!!!!!!!
 @app.route('/memo', methods=['POST'])
 def saving():
     url_receive = request.form['url_give']
-    comment_receive = request.form['comment_give']
+    ingredients_receive = request.form['ingredients_give']
+    howtocook_receive = request.form['howtocook_give']
 
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
@@ -123,10 +124,11 @@ def saving():
         'image':image,
         'desc':desc,
         'url':url_receive,
-        'comment':comment_receive
+        'ingredients': ingredients_receive,
+        'howtocook':howtocook_receive
     }
 
-    db.articles.insert_one(doc)
+    db.recipes.insert_one(doc)
 
     return jsonify({'msg':'레시피 저장완료!'})
 
