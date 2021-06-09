@@ -102,22 +102,25 @@ def listing():
     recipes = list(db.recipes.find({}, {'_id': False}))
     return jsonify({'all_recipes':recipes})
 
-# 크롤링 API 수정 요망!!!!!!!!!!
 @app.route('/memo', methods=['POST'])
 def saving():
     url_receive = request.form['url_give']
     comment_receive = request.form['comment_give']
 
-    headers = {
+    # 크롤링하는 부분-----------
+    headers = { # 데이터를 가져옴
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
     data = requests.get(url_receive, headers=headers)
 
-    soup = BeautifulSoup(data.text, 'html.parser')
+    soup = BeautifulSoup(data.text, 'html.parser') # bs4로 가져온 데이터 가공
 
+    # 데이터 골라서 가져오기
     title = soup.select_one('meta[property="og:title"]')['content']
     image = soup.select_one('meta[property="og:image"]')['content']
     desc = soup.select_one('meta[property="og:description"]')['content']
+    # ------------------------
 
+    # DB 저장 코드
     doc = {
         'title':title,
         'image':image,
