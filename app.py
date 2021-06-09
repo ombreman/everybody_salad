@@ -106,8 +106,7 @@ def listing():
 @app.route('/memo', methods=['POST'])
 def saving():
     url_receive = request.form['url_give']
-    ingredients_receive = request.form['ingredients_give']
-    howtocook_receive = request.form['howtocook_give']
+    comment_receive = request.form['comment_give']
 
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
@@ -124,8 +123,7 @@ def saving():
         'image':image,
         'desc':desc,
         'url':url_receive,
-        'ingredients': ingredients_receive,
-        'howtocook':howtocook_receive
+        'comment': comment_receive,
     }
 
     db.recipes.insert_one(doc)
