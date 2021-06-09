@@ -20,17 +20,17 @@ soup = BeautifulSoup(data.text, 'html.parser')
 trs = soup.select('#content > div.list_wrap > ul > li')
 for tr in trs :
     name = tr.select_one('div.info_area > div.subject > strong > a').text.split('만드는 법')[0]
-    desc = tr.select_one('div.info_area > p').text
-    thumb = tr.select_one('div.thumb_area > div.thumb.id1988477 > a')
+    desc = tr.select_one('div.info_area > p').text.lstrip()
+    thumb = tr.select_one('div.info_area >div.thumb_area')
     # doc = {
     #     'salad name': name,
     #     'salad desc': desc,
+    #
     # }
     # db.salad.insert_one(doc)
+    print(thumb)
 
 
-
-#content > div.list_wrap > ul > li:nth-child(1) > div.thumb_area > div.thumb.id1988477 > a:nth-child(1) > span
 
 
 #naver salad crawling part end
