@@ -19,6 +19,8 @@ client = MongoClient('localhost', 27017)
 db = client.dbeverybody_salad
 
 
+
+
 @app.route('/')
 def home():
     token_receive = request.cookies.get('mytoken')
