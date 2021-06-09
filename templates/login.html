@@ -29,15 +29,18 @@
 
         <style>
             body {
-                {#background-color: RGBA(232, 52, 78, 0.2);#}
-                min-height: 100vh;
-                margin-bottom:100px;
+                background-color: #9AEAE6;
+                min-height: 150vh;
+                {#margin-bottom:100px;#}
             }
 
 
             .section {
+                background-color:white;
+                border-radius: 5px;
+                {#min-height: 1000px;#}
                 padding: 1rem 1.5rem;
-                max-width: 750px;
+                max-width: 1300px;
                 margin: auto;
             }
 
@@ -58,26 +61,26 @@
             .button.is-sparta {
                 background-color: white;
                 border-width:3px;
-                border-color: #9AEAE6;
+                border-color: #298784;
                 text-shadow: black;
-                color: #9AEAE6 !important;
+                color: #298784 !important;
                 font-family: 'Jua', sans-serif;
             }
 
             .button.is-sparta.is-outlined {
                 background-color: white;
-                border-color: #9AEAE6;
+                border-color: #298784;
                 text-shadow: black;
-                color: #9AEAE6 !important;
+                color: #298784 !important;
             }
 
             .help {
                 color: gray;
             }
-            .hero{
-                height:350px;
-                background-color:#9AEAE6;
-            }
+            {#.hero{#}
+            {#    height:350px;#}
+            {#    background-color:#9AEAE6;#}
+            {#}#}
             {#.title.is-sparta{#}
             {#    color:white;#}
             {#}#}
@@ -87,18 +90,24 @@
                 width:500px;
                 margin:auto;
             }
-            .middle-img{
-
-                width:500px;
-                margin-left:700px;
-
-            }
+            {#.middle-img{#}
+            {##}
+            {#    width:500px;#}
+            {#    margin-left:700px;#}
+            {##}
+            {#}#}
             .font{
                font-family: 'Jua', sans-serif;
             }
             .mb-3{
-                color:#9AEAE6;
+                color:#298784;
             }
+
+
+
+
+
+
 
 
 
@@ -303,7 +312,7 @@
 
     </head>
     <body>
-        <section class="hero is-#9AEAE6">
+        <section class="hero">
             <img src="{{ url_for('static', filename='logo.jpeg') }}" class="salad-img">
             <div class="hero-body has-text-centered" style="padding-bottom:10px;padding-top:10px;">
                 <h1 class="title" style="font-size:50px;">모두의 샐러드</h1>
@@ -316,8 +325,8 @@
 {#        </section>#}
 
         <section class="section font">
-            <div class="container">
-                <div class="box" style="max-width: 480px;margin:auto">
+                <div class="container" >
+                <div class="box" style="max-width: 480px;margin:auto;">
                     <article class="media">
                         <div class="media-content">
                             <div class="content">
@@ -372,7 +381,7 @@
                                                    placeholder="비밀번호 재입력">
                                             <span class="icon is-small is-left"><i class="fa fa-lock"></i></span>
                                         </div>
-                                        <p id="help-password2" class="help is-hidden" style="color:#9AEAE6">비밀번호를 다시 한 번 입력해주세요.</p>
+                                        <p id="help-password2" class="help is-hidden" style="color:#298784">비밀번호를 다시 한 번 입력해주세요.</p>
 
                                     </div>
                                 </div>
