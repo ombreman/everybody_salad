@@ -24,17 +24,16 @@ for i in range(3):
         name = tr.select_one('div.info_area > div.subject > strong > a').text.split('만드는 법')[0]
         desc = tr.select_one('div.info_area > p').text.lstrip()
         thumb = tr.select_one('div.thumb_area > div.thumb > a > img')['data-src']
+        url = tr.select_one('div.info_area > div.subject > strong > a')['href']
+
         doc = {
             'salad name': name,
             'salad desc': desc,
-            'salad thumb': thumb
+            'salad thumb': thumb,
+            'salad url':'https://terms.naver.com'+url
         }
         db.salad.insert_one(doc)
 
-# https://terms.naver.com/list.naver?cid=48166&categoryId=48166&page=1
-
-#content > div.list_wrap > ul > li:nth-child(1) > div.thumb_area > div.thumb.id1988477 > a:nth-child(1) > img
-#content > div.list_wrap > ul > li > div.thumb_area > div.thumb > a > img
 
 
 #naver salad crawling part end
