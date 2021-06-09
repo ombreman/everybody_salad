@@ -44,7 +44,7 @@
                 border-radius: 10px;
             }
 
-            .ingredients {
+            .comment {
                 color: blue;
                 font-weight: bold;
             }
@@ -93,13 +93,12 @@
 
             function postArticle() {
                 let url = $('#post-url').val()
-                let ingredients = $('#post-ingredients').val()
-                let howtocook = $('#post-howtocook').val()
+                let comment = $('#post-comment').val()
 
                 $.ajax({
                     type: "POST",
                     url: "/memo",
-                    data: {url_give: url, ingredients_give: ingredients, howtocook_give: howtocook},
+                    data: {url_give: url, comment_give: comment},
                     success: function (response) { // 성공하면
                         alert(response["msg"]);
                         window.location.reload()
@@ -119,7 +118,7 @@
                             let image = recipes[i]['image']
                             let url = recipes[i]['url']
                             let desc = recipes[i]['desc']
-                            let ingredients = recipes[i]['ingredients']
+                            let comment = recipes[i]['comment']
 
                             let temp_html = `<div class="card card-block col-md-4" style="width: 100%;border:none;">
                                                 <img class="card-img-top"
@@ -129,7 +128,7 @@
                                                 <div class="card-body">
                                                     <a target="_blank" href="${url}" class="card-title">${title}</a>
                                                     <p class="card-text">${desc}</p>
-                                                    <p class="card-text ingredients">${ingredients}</p>
+                                                    <p class="card-text comment">한줄평: ${comment}</p>
                                                 </div>
                                             </div>`
                             $('#cards-box').append(temp_html)
@@ -147,7 +146,7 @@
         <div class="wrap" style="width: 1300px;">
             <div class="jumbotron main-width">
                 <h1 class="display-4 txt-1" style="text-align: center">나만의 샐러드 레시피 저장소!</h1>
-                <p class="lead txt-1" style="text-align: center">샐러드 레시피 링크와 함께 저장해두고, 필요할 때마다 꺼내보세요!</p>
+                <p class="lead txt-1" style="text-align: center">샐러드 레시피 링크와 함께 한줄평을 남겨두고, 필요할 때마다 찾아가보세요!</p>
                 <hr class="my-4" style="border:solid 1px #298784;">
                 <p class="lead">
                     <button style="background-color:#298784; border-color:white; margin: 0 auto; display: block" onclick="openClose()" id="btn-post-box" type="button" class="btn btn-primary btn-lg">포스팅 박스 열기
@@ -161,13 +160,8 @@
                         <input id="post-url" class="form-control" style="border:1px solid #badedd">
                     </div>
                     <div class="form-group">
-                        <label for="post-ingredients">준비할 재료</label>
-                        <textarea id="post-ingredients" class="form-control"style="border:1px solid #badedd" rows="2"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="post-howtocook">조리방법</label>
-                        <textarea id="post-howtocook" class="form-control" style="border:1px solid #badedd"
-                                  rows="4"></textarea>
+                        <label for="post-comment">한줄평</label>
+                        <textarea id="post-comment" class="form-control"style="border:1px solid #badedd" rows="2"></textarea>
                     </div>
                     <button type="button" class="btn btn-primary btn-lg" onclick="postArticle()" style="background-color:#298784;border:none; margin: 0 auto; display: block">레시피 저장</button>
                 </div>
