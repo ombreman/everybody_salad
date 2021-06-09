@@ -1,7 +1,8 @@
 from bs4 import BeautifulSoup
 import requests
 from pymongo import MongoClient
-client = MongoClient('localhost', 27017)
+client = MongoClient('mongodb://test:test@localhost', 27017)
+# client = MongoClient('localhost', 27017)
 db = client.dbeverybody_salad
 
 # 코딩 시작
