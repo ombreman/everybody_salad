@@ -100,41 +100,11 @@ def check_dup():
     exists = bool(db.users.find_one({"username": username_receive}))
     return jsonify({'result': 'success', 'exists': exists})
 
-@app.route('/memo', methods=['GET'])
+@app.route('/recipe', methods=['GET'])
 def listing():
-    recipes = list(db.recipes.find({}, {'_id': False}))
+    recipes = list(db.salad.find({}, {'_id': False}))
     return jsonify({'all_recipes':recipes})
 
-@app.route('/memo', methods=['POST'])
-def saving():
-    url_receive = request.form['url_give']
-    comment_receive = request.form['comment_give']
-
-    # 크롤링하는 부분-----------
-    headers = { # 데이터를 가져옴
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
-    data = requests.get(url_receive, headers=headers)
-
-    soup = BeautifulSoup(data.text, 'html.parser') # bs4로 가져온 데이터 가공
-
-    # 데이터 골라서 가져오기
-    title = soup.select_one('meta[property="og:title"]')['content']
-    image = soup.select_one('meta[property="og:image"]')['content']
-    desc = soup.select_one('meta[property="og:description"]')['content']
-    # ------------------------
-
-    # DB 저장 코드
-    doc = {
-        'title':title,
-        'image':image,
-        'desc':desc,
-        'url':url_receive,
-        'comment': comment_receive,
-    }
-
-    db.recipes.insert_one(doc)
-
-    return jsonify({'msg':'레시피 저장완료!'})
 
 
 # 시간 남으면 구현
