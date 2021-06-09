@@ -99,7 +99,7 @@
 
         <script>
             $(document).ready(function () {
-                showArticles();
+                showRecipes();
             });
 
             // function openClose() {
@@ -127,36 +127,33 @@
             //     })
             // }
 
-            // function showArticles() {
-            //     $.ajax({
-            //         type: "GET",
-            //         url: "/memo",
-            //         data: {},
-            //         success: function (response) {
-            //             let recipes = response['all_recipes']
-            //             for (let i = 0; i < recipes.length; i++) {
-            //                 let title = recipes[i]['title']
-            //                 let image = recipes[i]['image']
-            //                 let url = recipes[i]['url']
-            //                 let desc = recipes[i]['desc']
-            //                 let comment = recipes[i]['comment']
-            //
-            //                 let temp_html = `<div class="card card-block col-md-4" style="width: 100%;border:none; ">
-            //                                     <img class="card-img-top"
-            //                                          style="border-radius: 20px;"
-            //                                          src="${image}"
-            //                                          alt="Card image cap">
-            //                                     <div class="card-body">
-            //                                         <a target="_blank" href="${url}" class="card-title">${title}</a>
-            //                                         <p class="card-text">${desc}</p>
-            //                                         <p class="card-text comment">한줄평: ${comment}</p>
-            //                                     </div>
-            //                                 </div>`
-            //                 $('#cards-box').append(temp_html)
-            //             }
-            //         }
-            //     })
-            // }
+            function showRecipes() {
+                $.ajax({
+                    type: "GET",
+                    url: "/memo",
+                    data: {},
+                    success: function (response) {
+                        let recipes = response['all_recipes']
+                        for (let i = 0; i < recipes.length; i++) {
+                            let name = recipes[i]['salad name']
+                            let desc = recipes[i]['salad desc']
+                            let thumb = recipes[i]['salad thumb']
+
+                            let temp_html = `<div class="card card-block col-md-4" style="width: 100%;border:none; ">
+                                                <img class="card-img-top"
+                                                     style="border-radius: 20px;"
+                                                     src="${thumb}"
+                                                     alt="Card image cap">
+                                                <div class="card-body">
+                                                    <a target="_blank" class="card-title">${name}</a>
+                                                    <p class="card-text">${desc}</p>
+                                                </div>
+                                            </div>`
+                            $('#cards-box').append(temp_html)
+                        }
+                    }
+                })
+            }
 
             function sign_out() {
                 $.removeCookie('mytoken', {path: '/'});
@@ -170,7 +167,7 @@
             <div class="hero is-#9AEAE6">
                 <img src="{{ url_for('static', filename='logo.jpeg') }}" class="main-width">
             </div>
-        <div class="wrap" style="width: 1300px;">
+            <div class="wrap" style="width: 1300px;">
             <button class="btn btn-primary sign-out" type="button" onclick="sign_out()" style="background-color:#298784; border-color:white;">로그아웃</button>
             <div class="jumbotron main-width">
                 <h1 class="display-4 txt-1" style="text-align: center">나만의 샐러드 레시피 저장소!</h1>
@@ -194,8 +191,8 @@
 <!--                    <button type="button" class="btn btn-primary btn-lg" onclick="postRecipe()" style="background-color:#298784;border:none; margin: 0 auto; display: block">레시피 저장</button>-->
 <!--                </div>-->
 <!--            </div>-->
-<!--            <div id="cards-box" class="d-flex flex-row flex-wrap">-->
-<!--            </div>-->
+            <div id="cards-box" class="d-flex flex-row flex-wrap">
+            </div>
         </div>
     </body>
 </html>
