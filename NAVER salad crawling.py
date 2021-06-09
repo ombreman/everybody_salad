@@ -1,5 +1,10 @@
 from bs4 import BeautifulSoup
 import requests
+from pymongo import MongoClient
+client = MongoClient('localhost', 27017)
+db = client.dbeverybody_salad
+
+# 코딩 시작
 
 
 
@@ -11,21 +16,21 @@ data = requests.get('https://terms.naver.com/list.naver?cid=48166&categoryId=481
 
 soup = BeautifulSoup(data.text, 'html.parser')
 
-#content > div.list_wrap > ul > li:nth-child(1)
-#content > div.list_wrap > ul > li:nth-child(2)
 
 trs = soup.select('#content > div.list_wrap > ul > li')
 for tr in trs :
-    name = tr.select_one('div.info_area > div.subject > strong > a').text
+    name = tr.select_one('div.info_area > div.subject > strong > a').text.split('만드는 법')[0]
     desc = tr.select_one('div.info_area > p').text
-    print(name)
+    thumb = tr.select_one('div.thumb_area > div.thumb.id1988477 > a')
+    # doc = {
+    #     'salad name': name,
+    #     'salad desc': desc,
+    # }
+    # db.salad.insert_one(doc)
 
 
-# title = soup.select_one('#content > div.list_wrap > ul > li:nth-child(1) > div.info_area > div.subject > strong > a:nth-child(1)')
-#content > div.list_wrap > ul > li:nth-child(2) > div.info_area > div.subject > strong > a:nth-child(1)
-#content > div.list_wrap > ul > li:nth-child(1) > div.thumb_area > div.thumb.id1988477 > a:nth-child(1) > img
-#content > div.list_wrap > ul > li:nth-child(1) > div.info_area > p
-#
-# print(title.text)
+
+#content > div.list_wrap > ul > li:nth-child(1) > div.thumb_area > div.thumb.id1988477 > a:nth-child(1) > span
+
 
 #naver salad crawling part end
