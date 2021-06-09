@@ -13,7 +13,7 @@ db = client.dbeverybody_salad
 
 headers = {'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
 
-for i in range(3):
+for i in range(2):
     j = f'https://terms.naver.com/list.naver?cid=48166&categoryId=48166&page={i+1}';
     data = requests.get(j, headers=headers)
 
@@ -25,9 +25,9 @@ for i in range(3):
         desc = tr.select_one('div.info_area > p').text.lstrip()
         thumb = tr.select_one('div.thumb_area > div.thumb > a > img')['data-src']
         doc = {
-            'salad name': name,
-            'salad desc': desc,
-            'salad thumb': thumb
+            'salad_name': name,
+            'salad_desc': desc,
+            'salad_thumb': thumb
         }
         db.salad.insert_one(doc)
 

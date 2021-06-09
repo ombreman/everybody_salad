@@ -130,14 +130,14 @@
             function showRecipes() {
                 $.ajax({
                     type: "GET",
-                    url: "/memo",
+                    url: "/recipe",
                     data: {},
                     success: function (response) {
                         let recipes = response['all_recipes']
                         for (let i = 0; i < recipes.length; i++) {
-                            let name = recipes[i]['salad name']
-                            let desc = recipes[i]['salad desc']
-                            let thumb = recipes[i]['salad thumb']
+                            let name = recipes[i]['salad_name']
+                            let desc = recipes[i]['salad_desc'].slice(0, 100) + ". . ."
+                            let thumb = recipes[i]['salad_thumb']
 
                             let temp_html = `<div class="card card-block col-md-4" style="width: 100%;border:none; ">
                                                 <img class="card-img-top"
@@ -164,34 +164,19 @@
 
     </head>
     <body>
-            <div class="hero is-#9AEAE6">
-                <img src="{{ url_for('static', filename='logo.jpeg') }}" class="main-width">
-            </div>
-            <div class="wrap" style="width: 1300px;">
-            <button class="btn btn-primary sign-out" type="button" onclick="sign_out()" style="background-color:#298784; border-color:white;">로그아웃</button>
+        <div class="hero is-#9AEAE6">
+            <img src="{{ url_for('static', filename='logo.jpeg') }}" class="main-width">
+        </div>
+        <div class="wrap" style="width: 1300px;">
+            <button class="btn btn-primary sign-out" type="button" onclick="sign_out()"
+                    style="background-color:#298784; border-color:white;">로그아웃
+            </button>
             <div class="jumbotron main-width">
                 <h1 class="display-4 txt-1" style="text-align: center">나만의 샐러드 레시피 저장소!</h1>
                 <p class="lead txt-1" style="text-align: center">샐러드 레시피 링크와 함께 한줄평을 남겨두고, 필요할 때마다 찾아가보세요!</p>
                 <hr class="my-4" style="border:solid 1px #298784;">
 
-            <div id="cards-box" class="d-flex flex-row flex-wrap">
-                    <p class="lead">
-                        <button style="background-color:#298784; border-color:white; margin: 0 auto; display: block" id="btn-post-box" type="button" class="btn btn-primary btn-lg">포스팅 박스 열기
-                        </button>
-                    </p>
-                </div>
-                <div id="post-box" class="form-post" style="display:none">
-                    <div>
-                        <div class="form-group">
-                            <label for="post-url">레시피 URL</label>
-                            <input id="post-url" class="form-control" style="border:1px solid #badedd">
-                        </div>
-                        <div class="form-group">
-                            <label for="post-comment">한줄평</label>
-                            <textarea id="post-comment" class="form-control"style="border:1px solid #badedd" rows="2"></textarea>
-                        </div>
-                        <button type="button" class="btn btn-primary btn-lg" onclick="postRecipe()" style="background-color:#298784;border:none; margin: 0 auto; display: block">레시피 저장</button>
-                    </div>
+                <div id="cards-box" style="" class="d-flex flex-row flex-wrap">
                 </div>
             </div>
         </div>
