@@ -136,6 +136,12 @@
                     }
                 })
             }
+
+            function sign_out() {
+                $.removeCookie('mytoken', {path: '/'});
+                alert('로그아웃!')
+                window.location.href = "/login"
+            }
         </script>
 
     </head>
@@ -146,6 +152,7 @@
         <div class="wrap" style="width: 1300px;">
             <div class="jumbotron main-width">
                 <h1 class="display-4 txt-1" style="text-align: center">나만의 샐러드 레시피 저장소!</h1>
+                <a class="lead txt-1" href="javascript:sign_out()" style="color:#298784;">로그아웃</a>
                 <p class="lead txt-1" style="text-align: center">샐러드 레시피 링크와 함께 한줄평을 남겨두고, 필요할 때마다 찾아가보세요!</p>
                 <hr class="my-4" style="border:solid 1px #298784;">
                 <p class="lead">
