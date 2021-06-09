@@ -102,7 +102,7 @@ def sign_up():
 #     # ID 중복확인
 #     return jsonify({'result': 'success'})
 
-# 크롤링 API
+# 크롤링 API 수정 요망!!!!!!!!!!
 @app.route('/memo', methods=['POST'])
 def saving():
     url_receive = request.form['url_give']
@@ -128,10 +128,10 @@ def saving():
 
     db.articles.insert_one(doc)
 
-    return jsonify({'msg':'저장이 완료되었습니다!'})
+    return jsonify({'msg':'레시피 저장완료!'})
 
 
-# # 여기도 아마 필요없을 듯
+# 시간 남으면 구현
 # @app.route('/update_like', methods=['POST'])
 # def update_like():
 #     token_receive = request.cookies.get('mytoken')
