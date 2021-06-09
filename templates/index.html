@@ -173,25 +173,26 @@
                 <h1 class="display-4 txt-1" style="text-align: center">나만의 샐러드 레시피 저장소!</h1>
                 <p class="lead txt-1" style="text-align: center">샐러드 레시피 링크와 함께 한줄평을 남겨두고, 필요할 때마다 찾아가보세요!</p>
                 <hr class="my-4" style="border:solid 1px #298784;">
-<!--                <p class="lead">-->
-<!--                    <button style="background-color:#298784; border-color:white; margin: 0 auto; display: block" onclick="openClose()" id="btn-post-box" type="button" class="btn btn-primary btn-lg">포스팅 박스 열기-->
-<!--                    </button>-->
-<!--                </p>-->
-<!--            </div>-->
-<!--            <div id="post-box" class="form-post" style="display:none">-->
-<!--                <div>-->
-<!--                    <div class="form-group">-->
-<!--                        <label for="post-url">레시피 URL</label>-->
-<!--                        <input id="post-url" class="form-control" style="border:1px solid #badedd">-->
-<!--                    </div>-->
-<!--                    <div class="form-group">-->
-<!--                        <label for="post-comment">한줄평</label>-->
-<!--                        <textarea id="post-comment" class="form-control"style="border:1px solid #badedd" rows="2"></textarea>-->
-<!--                    </div>-->
-<!--                    <button type="button" class="btn btn-primary btn-lg" onclick="postRecipe()" style="background-color:#298784;border:none; margin: 0 auto; display: block">레시피 저장</button>-->
-<!--                </div>-->
-<!--            </div>-->
+
             <div id="cards-box" class="d-flex flex-row flex-wrap">
+                    <p class="lead">
+                        <button style="background-color:#298784; border-color:white; margin: 0 auto; display: block" id="btn-post-box" type="button" class="btn btn-primary btn-lg">포스팅 박스 열기
+                        </button>
+                    </p>
+                </div>
+                <div id="post-box" class="form-post" style="display:none">
+                    <div>
+                        <div class="form-group">
+                            <label for="post-url">레시피 URL</label>
+                            <input id="post-url" class="form-control" style="border:1px solid #badedd">
+                        </div>
+                        <div class="form-group">
+                            <label for="post-comment">한줄평</label>
+                            <textarea id="post-comment" class="form-control"style="border:1px solid #badedd" rows="2"></textarea>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-lg" onclick="postRecipe()" style="background-color:#298784;border:none; margin: 0 auto; display: block">레시피 저장</button>
+                    </div>
+                </div>
             </div>
         </div>
     </body>
