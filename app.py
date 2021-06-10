@@ -62,21 +62,6 @@ def sign_in():
     else:
         return jsonify({'result': 'fail', 'msg': '아이디/비밀번호가 일치하지 않습니다.'})
 
-# -----로그인 기존-----
-# @app.route('/sign_in', methods=['POST'])
-# def sign_in():
-#     # 로그인
-#     return jsonify({'result': 'success'})
-
-# -----회원가입 서버-----
-# @app.route('/sign_up/save', methods=['POST'])
-# def sign_up():
-#     # 회원가입
-#     username_receive = request.form['username_give']
-#     password_receive = request.form['password_give']
-#     password_hash = hashlib.sha256(password_receive.encode('utf-8')).hexdigest()
-#     # DB에 저장
-#     return jsonify({'result': 'success'})
 
 @app.route('/sign_up/save', methods=['POST'])
 def sign_up():
@@ -107,33 +92,6 @@ def listing():
     return jsonify({'all_recipes':recipes})
 
 
-
-# 시간 남으면 구현
-@app.route('/update_like', methods=['POST'])
-def update_like():
-    token_receive = request.cookies.get('mytoken')
-    try:
-        payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
-        user_info = db.users.find_one({"username": payload["id"]})
-        post_id_receive = request.form["post_id_give"]
-        type_receive = request.form["type_give"]
-        action_receive = request.form["action_give"]
-        doc = {
-            "post_id": post_id_receive,
-            "username": user_info["username"],
-            "type": type_receive
-        }
-        if action_receive == "like":
-            db.likes.insert_one(doc)
-        else:
-            db.likes.delete_one(doc)
-        count = db.likes.count_documents({"post_id": post_id_receive, "type": type_receive})
-        return jsonify({"result": "success", 'msg': 'updated', "count": count})
-        # 좋아요 수 변경
-        # return jsonify({"result": "success", 'msg': 'updated'})
-    except (jwt.ExpiredSignatureError, jwt.exceptions.DecodeError):
-        return redirect(url_for("home"))
-
-
 if __name__ == '__main__':
+    # app.run('0.0.0.0', port=80, debug=True)
     app.run('0.0.0.0', port=5000, debug=True)
