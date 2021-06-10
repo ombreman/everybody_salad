@@ -1,155 +1,199 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <!-- Webpage Title -->
-        <title>Home | 모두의 샐러드</title>
+<head>
+    <!-- Webpage Title -->
+    <title>Home | 모두의 샐러드</title>
 
-        <meta property="og:title" content="모두의 샐러드"/>
-        <meta property="og:description" content="건강한 샐러드가 건강한 삶을 만듭니다!"/>
-        <meta property="og:image" content="{{ url_for('static', filename='ogimage.jpeg') }}"/>
+    <meta property="og:title" content="모두의 샐러드"/>
+    <meta property="og:description" content="건강한 샐러드가 건강한 삶을 만듭니다!"/>
+    <meta property="og:image" content="{{ url_for('static', filename='ogimage.jpeg') }}"/>
 
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<!--        나중에 og 태그 추가할 것-->
-<!--        <meta property="og:title" content="스파르타 맛집 지도"/>-->
-<!--        <meta property="og:description" content="mini project for Web Plus"/>-->
-<!--        <meta property="og:image" content="{{ url_for('static', filename='og_image.jpg') }}"/>-->
-        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
-        <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <!--        나중에 og 태그 추가할 것-->
+    <!--        <meta property="og:title" content="스파르타 맛집 지도"/>-->
+    <!--        <meta property="og:description" content="mini project for Web Plus"/>-->
+    <!--        <meta property="og:image" content="{{ url_for('static', filename='og_image.jpg') }}"/>-->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
 
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-              crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
 
-        <!-- Font Awesome CSS -->
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-        <!-- JS -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-                crossorigin="anonymous"></script>
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
 
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Jua&display=swap" rel="stylesheet">
-
-
-        <style type="text/css">
-            body {
-                background-color: #9AEAE6;
-                min-height: 100vh;
-                margin-bottom:100px;
-            }
-            * {
-                font-family: 'Do Hyeon', sans-serif;
-                font-family: 'Jua', sans-serif;
-            }
-
-            .wrap {
-                width: 1000px;
-                margin: auto;
-                background-color: white;
-                border-radius: 10px;
-            }
-
-            .comment {
-                color: blue;
-                font-weight: bold;
-            }
-
-            #post-box {
-                width: 700px;
-                margin: 20px auto;
-                padding: 50px;
-                border: #298784 solid;
-                border-radius: 5px;
-                color: #298784;
-            }
-            .main-width{
-                width:900px;
-                display: block;
-                margin:0 auto;
-            }
-            .jumbotron{
-                background-color:white;
-                border-width:5px;
-                border-color:#298784;
-                padding:2em;
-            }
-            .txt-1{
-                color:#298784;
-            }
-            .d-flex{
-                margin-left:50px;
-                margin-right:50px;
-            }
-            .sign-out{
-                position:relative;
-                left:850px;
-                top:50px;
-                {#float:right;#}
-
-            }
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Jua&display=swap" rel="stylesheet">
 
 
+    <style type="text/css">
+        body {
+            background-color: #9AEAE6;
+            min-height: 100vh;
+            margin-bottom: 100px;
+        }
 
-        </style>
+        * {
+            font-family: 'Do Hyeon', sans-serif;
+            font-family: 'Jua', sans-serif;
+        }
+
+        .wrap {
+            width: 1000px;
+            margin: auto;
+            background-color: white;
+            border-radius: 10px;
+        }
+
+        .comment {
+            color: blue;
+            font-weight: bold;
+        }
+
+        #post-box {
+            width: 700px;
+            margin: 20px auto;
+            padding: 50px;
+            border: #298784 solid;
+            border-radius: 5px;
+            color: #298784;
+        }
+
+        .main-width {
+            width: 900px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .jumbotron {
+            background-color: white;
+            border-width: 5px;
+            border-color: #298784;
+            padding: 2em;
+        }
+
+        .txt-1 {
+            color: #298784;
+        }
+
+        .d-flex {
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+
+        .sign-out {
+            position: relative;
+            left: 850px;
+            top: 50px;
+        {#float:right;#}
+
+        }
 
 
-        <script>
-            $(document).ready(function () {
-                showRecipes();
-            });
+    </style>
 
-            function sign_out() {
-                $.removeCookie('mytoken', {path: '/'});
-                alert('로그아웃!')
-                window.location.href = "/login"
-            }
 
-            // function openClose() {
-            //     if ($("#post-box").css("display") == "block") {
-            //         $("#post-box").hide();
-            //         $("#btn-post-box").text("포스팅 박스 열기");
-            //     } else {
-            //         $("#post-box").show();
-            //         $("#btn-post-box").text("포스팅 박스 닫기");
-            //     }
-            // }
-
-            // function postRecipe() {
-            //     let url = $('#post-url').val()
-            //     let comment = $('#post-comment').val()
-
-            //     $.ajax({
-            //         type: "POST",
-            //         url: "/memo",
-            //         data: {url_give: url, comment_give: comment},
-            //         success: function (response) { // 성공하면
-            //             alert(response["msg"]);
-            //             window.location.reload()
-            //         }
-            //     })
-            // }
-
-            function showRecipes() {
+    <script>
+        function toggle_like(post_id, type) {
+            console.log(post_id, type)
+            let $a_like = $(`#${post_id} a[aria-label='heart']`)
+            let $i_like = $a_like.find("i")
+            if ($i_like.hasClass("fa-heart")) {
                 $.ajax({
-                    type: "GET",
-                    url: "/recipe",
-                    data: {},
+                    type: "POST",
+                    url: "/update_like",
+                    data: {
+                        post_id_give: post_id,
+                        type_give: type,
+                        action_give: "unlike"
+                    },
                     success: function (response) {
-                        let recipes = response['all_recipes']
-                        for (let i = 0; i < recipes.length; i++) {
-                            let name = recipes[i]['salad name']
-                            let desc = recipes[i]['salad desc'].slice(0, 100) + "......"
-                            let thumb = recipes[i]['salad thumb']
-                            let url = recipes[i]['salad url']
+                        console.log("unlike")
+                        $i_like.addClass("fa-heart-o").removeClass("fa-heart")
+                        $a_like.find("span.like-num").text(response["count"])
+                    }
+                })
+            } else {
+                $.ajax({
+                    type: "POST",
+                    url: "/update_like",
+                    data: {
+                        post_id_give: post_id,
+                        type_give: type,
+                        action_give: "like"
+                    },
+                    success: function (response) {
+                        console.log("like")
+                        $i_like.addClass("fa-heart").removeClass("fa-heart-o")
+                        $a_like.find("span.like-num").text(response["count"])
+                    }
+                })
 
-                            let temp_html = `<div class="card card-block col-md-4" style="width: 100%;border:none; ">
+            }
+        }
+
+
+        $(document).ready(function () {
+            showRecipes();
+        });
+
+        function sign_out() {
+            $.removeCookie('mytoken', {path: '/'});
+            alert('로그아웃!')
+            window.location.href = "/login"
+        }
+
+        // function openClose() {
+        //     if ($("#post-box").css("display") == "block") {
+        //         $("#post-box").hide();
+        //         $("#btn-post-box").text("포스팅 박스 열기");
+        //     } else {
+        //         $("#post-box").show();
+        //         $("#btn-post-box").text("포스팅 박스 닫기");
+        //     }
+        // }
+
+        // function postRecipe() {
+        //     let url = $('#post-url').val()
+        //     let comment = $('#post-comment').val()
+
+        //     $.ajax({
+        //         type: "POST",
+        //         url: "/memo",
+        //         data: {url_give: url, comment_give: comment},
+        //         success: function (response) { // 성공하면
+        //             alert(response["msg"]);
+        //             window.location.reload()
+        //         }
+        //     })
+        // }
+
+        function showRecipes() {
+            $.ajax({
+                type: "GET",
+                url: "/recipe",
+                data: {},
+                success: function (response) {
+                    let recipes = response['all_recipes']
+                    for (let i = 0; i < recipes.length; i++) {
+                        let name = recipes[i]['salad name']
+                        let desc = recipes[i]['salad desc'].slice(0, 100) + "......"
+                        let thumb = recipes[i]['salad thumb']
+                        let url = recipes[i]['salad url']
+
+                        let temp_html = `<div class="card card-block col-md-4" style="width: 100%;border:none; ">
                                                 <img class="card-img-top"
                                                      style="border-radius: 20px;"
                                                      src="${thumb}"
@@ -159,36 +203,36 @@
                                                     <p class="card-text">${desc}</p>
                                                 </div>
                                             </div>`
-                            $('#cards-box').append(temp_html)
-                        }
+                        $('#cards-box').append(temp_html)
                     }
-                })
-            }
+                }
+            })
+        }
 
-            function sign_out() {
-                $.removeCookie('mytoken', {path: '/'});
-                alert('로그아웃 되었습니다!')
-                window.location.href = "/login"
-            }
-        </script>
+        function sign_out() {
+            $.removeCookie('mytoken', {path: '/'});
+            alert('로그아웃 되었습니다!')
+            window.location.href = "/login"
+        }
+    </script>
 
-    </head>
-    <body>
-        <div class="hero is-#9AEAE6">
-            <img src="{{ url_for('static', filename='logo.jpeg') }}" class="main-width">
+</head>
+<body>
+<div class="hero is-#9AEAE6">
+    <img src="{{ url_for('static', filename='logo.jpeg') }}" class="main-width">
+</div>
+<div class="wrap" style="width: 1000px;">
+    <button class="btn btn-primary sign-out" type="button" onclick="sign_out()"
+            style="background-color:#298784; border-color:white;">로그아웃
+    </button>
+    <div class="jumbotron main-width">
+        <h1 class="display-4 txt-1" style="text-align: center">나만의 샐러드 레시피 저장소!</h1>
+        <p class="lead txt-1" style="text-align: center">보고 싶은 샐러드 레시피의 자세한 정보가 궁금하시다면 레시피 이름을 눌러보세요!</p>
+        <hr class="my-4" style="border:solid 1px #298784;">
+
+        <div id="cards-box" style="" class="d-flex flex-row flex-wrap">
         </div>
-        <div class="wrap" style="width: 1000px;">
-            <button class="btn btn-primary sign-out" type="button" onclick="sign_out()"
-                    style="background-color:#298784; border-color:white;">로그아웃
-            </button>
-            <div class="jumbotron main-width">
-                <h1 class="display-4 txt-1" style="text-align: center">나만의 샐러드 레시피 저장소!</h1>
-                <p class="lead txt-1" style="text-align: center">보고 싶은 샐러드 레시피의 자세한 정보가 궁금하시다면 레시피 이름을 눌러보세요!</p>
-                <hr class="my-4" style="border:solid 1px #298784;">
-
-                <div id="cards-box" style="" class="d-flex flex-row flex-wrap">
-                </div>
-            </div>
-        </div>
-    </body>
+    </div>
+</div>
+</body>
 </html>
