@@ -81,7 +81,7 @@
 
         <script>
             $(document).ready(function () {
-                showRecipes();
+                {#showRecipes();#}
             });
 
             function sign_out() {
@@ -96,25 +96,46 @@
                 url: "/recipe",
                 data: {},
                 success: function (response) {
-                    let recipes = response['all_recipes']
-                    for (let i = 0; i < recipes.length; i++) {
-                        let name = recipes[i]['salad name']
-                        let desc = recipes[i]['salad desc'].slice(0, 100) + "......"
-                        let thumb = recipes[i]['salad thumb']
-                        let url = recipes[i]['salad url']
-
-                        let temp_html = `<div class="card card-block col-md-4" style="width: 100%;border:none; ">
-                                                <img class="card-img-top"
-                                                     style="border-radius: 20px;"
-                                                     src="${thumb}"
-                                                     alt="Card image cap">
-                                                <div class="card-body">
-                                                    <a href="${url}" target="_blank" class="card-title">${name}</a>
-                                                    <p class="card-text">${desc}</p>
-                                                </div>
-                                            </div>`
+                    {% set recipes = response['all_recipes'] %}
+                    {% for recipe in recipes %}
+                        {% set name = recipe['salad name'] %}
+                        {% set desc = recipe['salad desc'].slice(0, 100) + "......" %}
+                        {% set thumb = recipe['salad thumb'] %}
+                        {% set url = recipe['salad url'] %}
+                        {% set temp_html = `<div class="card card-block col-md-4" style="width: 100%;border:none; ">
+                                                    <img class="card-img-top"
+                                                         style="border-radius: 20px;"
+                                                         src="${thumb}"
+                                                         alt="Card image cap">
+                                                    <div class="card-body">
+                                                        <a href="${url}" target="_blank" class="card-title">${name}</a>
+                                                        <p class="card-text">${desc}</p>
+                                                    </div>
+                                                </div>` %}
                         $('#cards-box').append(temp_html)
-                    }
+                    {% endfor %}
+
+                    {#오리지날 시작#}
+                    {#let recipes = response['all_recipes']#}
+                    {#for (let i = 0; i < recipes.length; i++) {#}
+                    {#    let name = recipes[i]['salad name']#}
+                    {#    let desc = recipes[i]['salad desc'].slice(0, 100) + "......"#}
+                    {#    let thumb = recipes[i]['salad thumb']#}
+                    {#    let url = recipes[i]['salad url']#}
+                    {##}
+                    {#    let temp_html = `<div class="card card-block col-md-4" style="width: 100%;border:none; ">#}
+                    {#                            <img class="card-img-top"#}
+                    {#                                 style="border-radius: 20px;"#}
+                    {#                                 src="${thumb}"#}
+                    {#                                 alt="Card image cap">#}
+                    {#                            <div class="card-body">#}
+                    {#                                <a href="${url}" target="_blank" class="card-title">${name}</a>#}
+                    {#                                <p class="card-text">${desc}</p>#}
+                    {#                            </div>#}
+                    {#                        </div>`#}
+                    {#    $('#cards-box').append(temp_html)#}
+                    {#}#}
+                    {#오리지날 끝#}
                 }
             })
         }
