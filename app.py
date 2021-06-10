@@ -28,7 +28,8 @@ def home():
     try:
         payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
 
-        return render_template('index.html')
+        recipes = list(db.salad.find({}, {'_id': False}))
+        return render_template('index.html',recipes=recipes)
     except jwt.ExpiredSignatureError:
         return redirect(url_for("login", msg="로그인 시간이 만료되었습니다."))
     except jwt.exceptions.DecodeError:
