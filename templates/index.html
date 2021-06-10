@@ -104,20 +104,20 @@
             style="background-color:#298784; border-color:white;">로그아웃
     </button>
     <div class="jumbotron main-width">
-        <h1 class="display-4 txt-1" style="text-align: center">나만의 샐러드 레시피 저장소!</h1>
-        <p class="lead txt-1" style="text-align: center">샐러드 레시피 링크와 함께 한줄평을 남겨두고, 필요할 때마다 찾아가보세요!</p>
+        <h1 class="display-4 txt-1" style="text-align: center">샐러드를 즐기세요!</h1>
+        <p class="lead txt-1" style="text-align: center">각 샐러드 레시피의 세부정보를 보시려면 샐러드 이름을 클릭하세요</p>
         <hr class="my-4" style="border:solid 1px #298784;">
 
-        <div id="cards-box" style="" class="d-flex flex-row flex-wrap">
+        <div id="cards-box" class="d-flex flex-row flex-wrap">
             {% for recipe in recipes %}
-            <div class="card card-block col-md-4" style="width: 100%;border:none; ">
+            <div class="card card-block col-md-4" style="width: 100%;border:none; text-overflow: ellipsis; ">
                 <img class="card-img-top"
                      style="border-radius: 20px;"
                      src="{{ recipe['salad thumb'] }}"
                      alt="Card image cap">
                 <div class="card-body">
                     <a href="{{recipe['salad url']}}" target="_blank" class="card-title">{{ recipe['salad name'] }}</a>
-                    <p class="card-text">{{recipe['salad desc']}}</p>
+                    <p class="card-text">{{recipe['salad desc'][:150]}} ......</p>
                 </div>
             </div>
             {% endfor %}
